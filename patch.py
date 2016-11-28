@@ -13,6 +13,6 @@ name = sys.argv[1]
 res = patch(standart, extension)
 
 with open('Patched/{}.json'.format(name), 'w') as outfile:
-    json.dump(res, outfile)
+    json.dump(res, outfile, indent=4)
 with open('Patches/{}.json'.format(name), 'w') as outfile:
-    json.dump(extension, outfile)
+    json.dump(extension, outfile,indent=4)

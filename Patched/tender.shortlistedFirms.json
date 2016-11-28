@@ -1148,6 +1148,10 @@
                     "description": "Tender title", 
                     "mergeStrategy": "ocdsVersion"
                 }, 
+                "shortlistedFirms": {
+                    "type": "string", 
+                    "description": "A list of firms which can register bids on the second stage of the competitive dialogue procedure"
+                }, 
                 "procurementMethodRationale": {
                     "type": [
                         "string", 
@@ -1188,10 +1192,6 @@
                     ], 
                     "description": "Tender description", 
                     "mergeStrategy": "ocdsVersion"
-                }, 
-                "date": {
-                    "type": "string", 
-                    "description": "Date of tender"
                 }, 
                 "submissionMethod": {
                     "items": {
