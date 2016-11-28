@@ -1,0 +1,62 @@
+[
+    {
+        "op": "add",
+        "path": "/definitions/Cancellation",
+        "required": [
+            "reason"
+        ],
+        "value": {
+            "description": "Describes the reason of tender cancellation contains accompanying documents if any",
+            "type": "object",
+            "properties": {
+                "id": {
+                    "description": "Unique id of cancellation",
+                    "type": "string"
+                },
+                "reason": {
+                    "description": "The reason, why tender is being cancelled",
+                    "type": "string"
+                },
+                "status": {
+                    "description": "Status of the cancellation",
+                    "type": "string",
+                    "enum": [
+                        "pending",
+                        "active"
+                    ]
+                },
+                "documents": {
+                    "description": "Documents accompanying the Cancellation: Protocol of Tender Committee with decision to cancel the Tender",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Document"
+                    }
+                },
+                "date": {
+                    "description": "Cancellation date",
+                    "type": "string"
+                },
+                "cancellationOf": {
+                    "description": "What is cancelled",
+                    "type": "string",
+                    "enum": [
+                        "tender",
+                        "lot"
+                    ]
+                },
+                "relatedLot": {
+                    "description": "Id of related lot",
+                    "type": "string"
+                },
+                "reasonType": {
+                    "description": "Type of cancellation reason",
+                    "type": "string",
+                    "enum": [
+                        "cancelled",
+                        "unsuccessful"
+                    ]
+                }
+            }
+        }
+    }
+]

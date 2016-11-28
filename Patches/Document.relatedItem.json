@@ -1,0 +1,10 @@
+[
+    {
+        "op": "add",
+        "path": "/definitions/Document/properties/relatedItem",
+        "value": {
+            "description": "Id of item document belongs to",
+            "type": "string"
+        }
+    }
+]

@@ -1,0 +1,30 @@
+[
+	{
+		"op": "add",
+		"path": "/definitions/shortlistedFirms",
+		"required": [
+			"name"
+		],
+		"value": {
+			"description": "Firm which can register bid on tender",
+			"type": "object",
+			"properties": {
+				"name": {
+					"description": "Firm name",
+					"type": "string"
+				},
+				"identifier": {
+					"description": "The primary identifier for this organization",
+					"$ref": "#/definitions/Identifier"
+				},
+				"lots": {
+					"description": "List of lots",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/Lots"
+					}
+				}
+			}
+		}
+	}
+]

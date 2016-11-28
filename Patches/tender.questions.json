@@ -1,0 +1,13 @@
+[
+	{
+		"op": "add",
+		"path": "/definitions/Tender/properties/questions",
+		"value": {
+			"description": "Questions to procuringEntity and answers to them",
+			"type": "array",
+			"items": {
+				"$ref": "#/definitions/Question"
+			}
+		}
+	}
+]

@@ -1,0 +1,10 @@
+[
+    {
+        "path": "/definitions/Tender/properties/minimalStep",
+        "value": {
+            "description": "Minimal step of auction (reduction). The minimal step must be less then Tender.value.amount, the currency must be either absent or equal to Tender.value.currency, valueAddedTaxIncluded must be either absent or equal to Tender.value.valueAddedTaxIncluded.",
+            "$ref": "#/definitions/Value"
+        },
+        "op": "add"
+    }
+]

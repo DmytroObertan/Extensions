@@ -1,0 +1,10 @@
+[
+	{
+		"op": "add",
+		"path": "/definitions/Tender/properties/qualificationPeriod",
+		"value": {
+			"description": "Period when qualification can be submitted with the 10 day stand still period",
+			"$ref": "#/definitions/Period"
+		}
+	}
+]

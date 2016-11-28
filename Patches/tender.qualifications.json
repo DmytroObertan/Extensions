@@ -1,0 +1,13 @@
+[
+	{
+		"op": "add",
+		"path": "/definitions/Tender/properties/qualifications",
+		"value": {
+			"description": "All qualifications of the tender",
+			"type": "array",
+			"items": {
+				"$ref": "#/definitions/Qualification"
+			}
+		}
+	}
+]

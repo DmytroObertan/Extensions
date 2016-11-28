@@ -1,0 +1,24 @@
+[
+    {
+        "op": "add",
+        "path": "/definitions/Parameter",
+        "required": [
+        	"code",
+        	"value"
+        ],
+        "value": {
+            "description": "Additional features for bids",
+            "type": "object",
+            "properties": {
+            	"code": {
+            		"description": "Code of the feature",
+            		"type": "string"
+            	},
+            	"value": {
+            		"description": "Value of the feature",
+            		"type": "string"
+            	}
+            }
+        }
+    }
+]

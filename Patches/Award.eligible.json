@@ -1,0 +1,10 @@
+[
+	{
+		"op": "add",
+		"path": "/definitions/Award/properties/eligible",
+		"value": {
+			"description": "Confirms compliance of eligibility criteria set by the procuring entity in the tendering documents.",
+			"type": "boolean"
+		}
+	}
+]

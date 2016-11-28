@@ -1,0 +1,10 @@
+[
+    {
+        "path": "/definitions/Tender/properties/auctionPeriod",
+        "value": {
+            "description": "Period when Auction is conducted",
+            "$ref": "#/definitions/Period"
+        },
+        "op": "add"
+    }
+]

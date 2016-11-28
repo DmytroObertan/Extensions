@@ -1,0 +1,64 @@
+[
+    {
+        "path": "/definitions/Feature",
+        "required": [
+            "featureOf",
+            "title"
+        ],
+        "value": {
+            "type": "object",
+            "description": "Features of tender",
+            "properties": {
+                "code": {
+                    "type": "string",
+                    "description": "Code of feature"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Description of the feature"
+                },
+                "title": {
+                    "type": "string",
+                    "description": "Title of the feature"
+                },
+                "enum": {
+                    "items": {
+                        "description": {
+                            "type": "Description of the value",
+                            "description": "Description of the value"
+                        },
+                        "value": {
+                            "type": "float",
+                            "description": "Value of the feature"
+                        },
+                        "title": {
+                            "type": "string",
+                            "description": "Title of the value"
+                        }
+                    },
+                    "required": [
+                        "value",
+                        "title"
+                    ],
+                    "type": "array",
+                    "description": "List of values"
+                },
+                "relatedItem": {
+                    "type": "string",
+                    "description": "Id of related Item or Lot"
+                },
+                "featureOf": {
+                    "enum": [
+                        "tenderer",
+                        "lot",
+                        "item",
+                        null
+                    ],
+                    "type": "string",
+                    "description": "Feature related to"
+                }
+            }
+        },
+        "op": "add"
+    }
+]

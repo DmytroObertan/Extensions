@@ -1,0 +1,13 @@
+[
+	{
+		"op": "add",
+		"path": "/definitions/Tender/properties/features",
+		"value": {
+			"description": "Features of tender",
+			"type": "array",
+			"items": {
+				"$ref": "#/definitions/Feature"
+			}
+		}
+	}
+]

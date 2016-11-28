@@ -1,0 +1,10 @@
+[
+    {
+    	"op": "add",
+    	"path": "/definitions/Award/properties/lotID",
+    	"value": {
+    		"description": "Id of related lot",
+    		"type": "string"
+    	}
+    }
+]

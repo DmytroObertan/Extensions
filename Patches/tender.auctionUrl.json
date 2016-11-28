@@ -1,0 +1,10 @@
+[
+    {
+        "path": "/definitions/Tender/properties/auctionUrl",
+        "value": {
+            "type": "string",
+            "description": "A web address for view auction"
+        },
+        "op": "add"
+    }
+]

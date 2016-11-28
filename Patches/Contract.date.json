@@ -1,0 +1,10 @@
+[
+	{
+		"op": "add",
+		"path": "/definitions/Contract/date",
+		"value": {
+			"description": "The date when the contract was changed or activated",
+			"type": "string"
+		}
+	}
+]

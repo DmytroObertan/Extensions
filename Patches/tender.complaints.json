@@ -1,0 +1,13 @@
+[
+	{
+		"op": "add",
+		"path": "/definitions/Tender/properties/complaints",
+		"value": {
+			"description": "Complaints to tender conditions and their resolutions",
+			"type": "array",
+			"items": {
+				"$ref": "#/definitions/Complaint"
+			}
+		}
+	}
+]

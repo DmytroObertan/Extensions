@@ -1,0 +1,10 @@
+[
+	{
+		"op": "add",
+		"path": "/definitions/Document/properties/confidentialityRationale",
+		"value": {
+			"description": "Reasons for confidentiality of documents",
+			"type": "string"
+		}
+	}
+]

@@ -1,0 +1,16 @@
+[
+	{
+		"op": "add",
+		"path": "/definitions/Lots",
+		"value": {
+			"description": "Needed in shortlisted Firms",
+			"type": "object",
+			"properties": {
+				"id": {
+					"description": "The primary identifier for lot",
+					"$ref": "#/definitions/Lot"
+				}
+			}
+		}
+	}
+]

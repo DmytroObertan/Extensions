@@ -1,0 +1,13 @@
+[
+	{
+		"op": "add",
+		"path": "/definitions/Tender/properties/bids",
+		"value": {
+			"description": "A list of all bids placed in the tender with information about tenderers, their proposal and other qualification documentation.",
+			"type": "array",
+			"items": {
+				"$ref": "#/definitions/Bid"
+			}
+		}
+	}
+]

@@ -1,0 +1,10 @@
+[
+	{
+		"op": "add",
+		"path": "/definitions/Tender/properties/date",
+		"value": {
+			"description": "Date of tender",
+			"type": "string"
+		}
+	}
+]

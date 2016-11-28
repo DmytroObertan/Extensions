@@ -1,0 +1,10 @@
+[
+	{
+		"op": "add",
+		"path": "/definitions/Tender/properties/procurementMethodType",
+		"value": {
+			"description": "Procurement method types",
+			"type": "string"
+		}
+	}
+]

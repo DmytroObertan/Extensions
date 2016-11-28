@@ -1,0 +1,14 @@
+[
+	{
+		"op": "add",
+		"path": "/definitions/Document/properties/confidentiality",
+		"value": {
+			"description": "Confidentiality of the document",
+			"type": "string",
+			"enum": [
+				"public",
+				"buyerOnly"
+			]
+		}
+	}
+]

@@ -1,0 +1,10 @@
+[
+    {
+        "op": "add",
+        "path": "/definitions/Guarantee",
+        "value": {
+            "description": "BidGuarantee",
+            "$ref": "#/definitions/value"
+        }
+    }
+]

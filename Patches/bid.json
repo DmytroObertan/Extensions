@@ -1,0 +1,85 @@
+[
+    {
+        "op": "add",
+        "path": "/definitions/Bid",
+        "required": [
+            "value",
+            "selfEligible",
+            "selfQualified"
+        ],
+        "value": {
+            "description": "Bids in tender",
+            "type": "object",
+            "properties": {
+                "tenderers": {
+                    "description": "List of tenderers",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Organization"
+                    },
+                    "uniqueItems": true
+                },
+                "date": {
+                    "description": "Date when bid posted",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "Unique id of bid",
+                    "type": "string"
+                },
+                "status": {
+                    "description": "Status of bid",
+                    "type": "string",
+                    "enum": [
+                        "draft",
+                        "active"
+                    ]
+                },
+                "value": {
+                    "description": "Value of bid",
+                    "$ref": "#/definitions/Value"
+                },
+                "documents": {
+                    "description": "Documents related to bid",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Document"
+                    },
+                    "uniqueItems": true
+                },
+                "parameters": {
+                    "description": "Additional features of bid",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Parameter"
+                    },
+                    "uniqueItems": true
+                },
+                "lotValues": {
+                    "description": "lot values related to bid",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/lotValues"
+                    },
+                    "uniqueItems": true
+                },
+                "participationUrl": {
+                    "description": "A web address for participation in auction",
+                    "type": "string"
+                },
+                "subcontractingDetails": {
+                    "description": "While submitting bid proposal, participant can fill in the text field of any length about subcontractor",
+                    "type": "string"
+                },
+                "selfEligible": {
+                    "description": "Confirms compliance of eligibility criteria set by the customer in the tendering documents",
+                    "type": "boolean"
+                },
+                "selfQualified": {
+                    "description": "Confirms the absence of grounds for refusal to participate in accordance with Article 17 of the Law of Ukraine \"On public procurement]\"",
+                    "type": "boolean"
+                }
+            }
+        }
+    }
+]
