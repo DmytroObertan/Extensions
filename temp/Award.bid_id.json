@@ -1,0 +1,10 @@
+[
+    {
+        "path": "/definitions/Award/properties/bid_id", 
+        "value": {
+            "type": "string", 
+            "description": "An identifier of the bid that the award is related to"
+        }, 
+        "op": "add"
+    }
+]

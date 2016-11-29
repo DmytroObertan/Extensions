@@ -1,0 +1,114 @@
+[
+    {
+        "path": "/definitions/Bid", 
+        "required": [
+            "value", 
+            "selfEligible", 
+            "selfQualified"
+        ], 
+        "value": {
+            "type": "object", 
+            "description": "Bids in tender", 
+            "properties": {
+                "status": {
+                    "enum": [
+                        "draft", 
+                        "active", 
+                        "pending", 
+                        "invalid", 
+                        "invalid.pre-qualification", 
+                        "deleted", 
+                        "unsuccessful"
+                    ], 
+                    "type": "string", 
+                    "description": "Status of bid"
+                }, 
+                "documents": {
+                    "uniqueItems": true, 
+                    "items": {
+                        "$ref": "#/definitions/Document"
+                    }, 
+                    "type": "array", 
+                    "description": "Documents related to bid"
+                }, 
+                "parameters": {
+                    "uniqueItems": true, 
+                    "items": {
+                        "$ref": "#/definitions/Parameter"
+                    }, 
+                    "type": "array", 
+                    "description": "Additional features of bid"
+                }, 
+                "eligibilityDocuments": {
+                    "uniqueItems": true, 
+                    "items": {
+                        "$ref": "#/definitions/Document"
+                    }, 
+                    "type": "array", 
+                    "description": "This envelope can contain eligibilityDocuments document type. It is revealed at pre-qualification."
+                }, 
+                "selfEligible": {
+                    "type": "boolean", 
+                    "description": "Confirms compliance of eligibility criteria set by the customer in the tendering documents"
+                }, 
+                "id": {
+                    "type": "string", 
+                    "description": "Unique id of bid"
+                }, 
+                "value": {
+                    "description": "Value of bid", 
+                    "$ref": "#/definitions/Value"
+                }, 
+                "subcontractingDetails": {
+                    "type": "string", 
+                    "description": "While submitting bid proposal, participant can fill in the text field of any length about subcontractor"
+                }, 
+                "selfQualified": {
+                    "type": "boolean", 
+                    "description": "Confirms the absence of grounds for refusal to participate in accordance with Article 17 of the Law of Ukraine \"On public procurement]\""
+                }, 
+                "financialDocuments": {
+                    "uniqueItems": true, 
+                    "items": {
+                        "$ref": "#/definitions/Document"
+                    }, 
+                    "type": "array", 
+                    "description": "This envelope can contain financial part of proposal (commercialProposal and billOfQuantity). It is revealed at post-qualification."
+                }, 
+                "lotValues": {
+                    "uniqueItems": true, 
+                    "items": {
+                        "$ref": "#/definitions/LotValue"
+                    }, 
+                    "type": "array", 
+                    "description": "lot values related to bid"
+                }, 
+                "tenderers": {
+                    "uniqueItems": true, 
+                    "items": {
+                        "$ref": "#/definitions/Organization"
+                    }, 
+                    "type": "array", 
+                    "description": "List of Organization objects"
+                }, 
+                "date": {
+                    "type": "string", 
+                    "description": "Date when bid posted"
+                }, 
+                "qualificationDocuments": {
+                    "uniqueItems": true, 
+                    "items": {
+                        "$ref": "#/definitions/Document"
+                    }, 
+                    "type": "array", 
+                    "description": "This envelope is revealed at post-qualification."
+                }, 
+                "participationUrl": {
+                    "type": "string", 
+                    "description": "A web address for participation in auction"
+                }
+            }
+        }, 
+        "op": "add"
+    }
+]

@@ -1,0 +1,10 @@
+[
+    {
+        "path": "/definitions/Tender/properties/guarantee", 
+        "value": {
+            "description": "Bid guarantee", 
+            "$ref": "#/definitions/Guarantee"
+        }, 
+        "op": "add"
+    }
+]

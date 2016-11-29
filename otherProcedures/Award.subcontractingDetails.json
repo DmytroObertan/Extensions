@@ -1,0 +1,10 @@
+[
+    {
+        "path": "/definitions/Award/properties/subcontractingDetails", 
+        "value": {
+            "type": "string", 
+            "description": "The text field of any length that contains information about subcontractor"
+        },
+        "op": "add"
+    }
+]

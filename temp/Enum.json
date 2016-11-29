@@ -1,0 +1,28 @@
+[
+    {
+        "path": "/definitions/Enum", 
+        "required": [
+            "value", 
+            "title"
+        ], 
+        "value": {
+            "type": "object", 
+            "properties": {
+                "description": {
+                    "type": "string", 
+                    "description": "Description of the value"
+                }, 
+                "value": {
+                    "type": "number", 
+                    "description": "Value of the feature"
+                }, 
+                "title": {
+                    "type": "string", 
+                    "description": "Title of the value"
+                }
+            }, 
+            "description": "A list of possible values: value, title, and description"
+        }, 
+        "op": "add"
+    }
+]

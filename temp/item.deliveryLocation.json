@@ -1,0 +1,39 @@
+[
+    {
+        "path": "/definitions/Item/properties/deliveryLocation", 
+        "value": {
+            "title": "Delivery Location", 
+            "required": [
+                "latitude", 
+                "longitude"
+            ], 
+            "type": "object", 
+            "properties": {
+                "latitude": {
+                    "type": [
+                        "number", 
+                        "string"
+                    ], 
+                    "description": "The latitude of a location."
+                }, 
+                "elevation": {
+                    "type": [
+                        "number", 
+                        "string", 
+                        "null"
+                    ], 
+                    "description": "The elevation of a location."
+                }, 
+                "longitude": {
+                    "type": [
+                        "number", 
+                        "string"
+                    ], 
+                    "description": "The longitude of a location."
+                }
+            }, 
+            "description": "Describes where an item will be delivered to as a geo co-ordinate. The longitude and latitude MUST be expressed in decimal degrees in the WGS84 (EPSG:4326) projection"
+        }, 
+        "op": "add"
+    }
+]

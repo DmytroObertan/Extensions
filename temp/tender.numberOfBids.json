@@ -1,0 +1,10 @@
+[
+    {
+        "path": "/definitions/Tender/properties/numberOfBids", 
+        "value": {
+            "type": "number", 
+            "description": "The amount of bids in the tender"
+        }, 
+        "op": "add"
+    }
+]

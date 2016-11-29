@@ -1,0 +1,10 @@
+[
+	{
+		"op": "add",
+		"path": "/definitions/Award/properties/qualified",
+		"value": {
+			"description": "Confirms the absence of grounds for refusal to participate in accordance with Article 17 of the Law of Ukraine \"On Public Procurement\".",
+			"type": "boolean"
+		}
+	}
+]

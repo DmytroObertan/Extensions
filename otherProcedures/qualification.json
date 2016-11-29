@@ -1,0 +1,61 @@
+[
+    {
+        "path": "/definitions/Qualification", 
+        "value": {
+            "type": "object", 
+            "description": "", 
+            "properties": {
+                "status": {
+                    "enum": [
+                        "pending", 
+                        "active", 
+                        "unsuccessful", 
+                        "cancelled"
+                    ], 
+                    "type": "string", 
+                    "description": "Status of the qualification"
+                }, 
+                "lotID": {
+                    "type": "string", 
+                    "description": "In Multilot tenders, lot that this Qualification protocol relates to"
+                }, 
+                "description": {
+                    "type": "string", 
+                    "description": "Description of the qualification"
+                }, 
+                "title": {
+                    "type": "string", 
+                    "description": "Qualification title"
+                }, 
+                "eligible": {
+                    "type": "boolean", 
+                    "description": "Confirms compliance of eligibility criteria set by the procuring entity in the tendering documents"
+                }, 
+                "id": {
+                    "type": "string", 
+                    "description": "Unique id of the qualification"
+                }, 
+                "qualified": {
+                    "definitions": "Confirms the absence of grounds for refusal to participate in accordance with Article 17 of the Law of Ukraine \"On Public Procurement\"", 
+                    "type": "boolean"
+                }, 
+                "bidID": {
+                    "type": "string", 
+                    "description": "Bid that this Qualification protocol relates to"
+                }, 
+                "date": {
+                    "type": "string", 
+                    "description": "The date of the qualification"
+                }, 
+                "documents": {
+                    "items": {
+                        "$ref": "#/definitions/Document"
+                    }, 
+                    "type": "array", 
+                    "description": "Container for Qualification documentation, protocols, reasons for qualification or disqualification. Uploaded by tender committee"
+                }
+            }
+        }, 
+        "op": "add"
+    }
+]

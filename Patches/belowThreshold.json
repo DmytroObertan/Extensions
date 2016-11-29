@@ -1,0 +1,32 @@
+[
+	{
+		"op": "add",
+		"path": "/definitions/Tender/procurementMethodType/enum/1",
+		"value": "belowThreshold"
+	},
+	{
+		"op": "add",
+		"path": "/definitions/Tender/status/enum/1",
+		"value": "active.enquiries"
+	},
+	{
+		"op": "add",
+		"path": "/definitions/Tender/status/enum/1",
+		"value": "active.tendering"
+	},
+	{
+		"op": "add",
+		"path": "/definitions/Tender/status/enum/1",
+		"value": "active.auction"
+	},
+	{
+		"op": "add",
+		"path": "/definitions/Tender/status/enum/1",
+		"value": "active.qualification"
+	},
+	{
+		"op": "add",
+		"path": "/definitions/Tender/status/enum/1",
+		"value": "active.awarded"
+	}
+]

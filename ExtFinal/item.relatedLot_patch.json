@@ -1,0 +1,10 @@
+[
+    {
+        "path": "/definitions/Item/relatedLot", 
+        "value": {
+            "type": "string", 
+            "description": "An identifier of the related lot"
+        }, 
+        "op": "add"
+    }
+]

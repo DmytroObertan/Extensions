@@ -1,0 +1,15 @@
+[
+    {
+        "path": "/definitions/Document/properties/documentOf", 
+        "value": {
+            "enum": [
+                "tender", 
+                "item", 
+                "lot"
+            ], 
+            "type": "string", 
+            "description": "Entity to which the document belongs"
+        }, 
+        "op": "add"
+    }
+]

@@ -1,0 +1,35 @@
+[
+    {
+        "path": "/definitions/LotValue", 
+        "required": [
+            "value"
+        ], 
+        "value": {
+            "type": "object", 
+            "description": "Lot to which bid belongs to", 
+            "properties": {
+                "relatedLot": {
+                    "type": "string", 
+                    "description": "Id of related lot"
+                }, 
+                "date": {
+                    "type": "string", 
+                    "description": "Date of lot posting"
+                }, 
+                "value": {
+                    "description": "Value of the lot", 
+                    "$ref": "#/definitions/Value"
+                }, 
+                "participationUrl": {
+                    "type": "string", 
+                    "description": "A web address for participation in auction"
+                }, 
+                "subcontractingDetails": {
+                    "type": "string", 
+                    "description": "While submitting bid proposal, participant can fill in the text field of any length about subcontractor."
+                }
+            }
+        }, 
+        "op": "add"
+    }
+]

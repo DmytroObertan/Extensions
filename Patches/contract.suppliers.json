@@ -1,0 +1,13 @@
+[
+    {
+        "path": "/definitions/Contract/suppliers", 
+        "value": {
+            "items": {
+                "$ref": "#/definitions/Organization"
+            }, 
+            "type": "array", 
+            "description": "Description of the supplying organization, auto-generated"
+        }, 
+        "op": "add"
+    }
+]

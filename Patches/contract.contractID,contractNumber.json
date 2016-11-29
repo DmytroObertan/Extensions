@@ -1,0 +1,18 @@
+[
+    {
+        "path": "/definitions/Contract/contractID", 
+        "value": {
+            "type": "string", 
+            "description": "Number of the contract, auto generated"
+        }, 
+        "op": "add"
+    }, 
+    {
+        "path": "/definitions/Contract/contractNumber", 
+        "value": {
+            "type": "string", 
+            "description": "Editable number of the contract "
+        }, 
+        "op": "add"
+    }
+]

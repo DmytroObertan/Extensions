@@ -1,0 +1,62 @@
+[
+    {
+        "op": "add",
+        "path": "/definitions/Lot",
+        "required": [
+            "value",
+            "minimalStep"
+        ],
+        "value": {
+            "type": "object",
+            "description": "Lot related to tender",
+            "properties": {
+                "status": {
+                    "enum": [
+                        "active",
+                        "unsuccessful",
+                        "complete",
+                        "cancelled"
+                    ],
+                    "type": "string",
+                    "description": "Status of the lot"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Detailed description of tender lot"
+                },
+                "title": {
+                    "type": "string",
+                    "description": "Title of lot"
+                },
+                "minimalStep": {
+                    "description": "The minimal step of auction.",
+                    "$ref": "#/definitions/Value"
+                },
+                "auctionPeriod": {
+                    "description": "Period when auction is conducted.",
+                    "$ref": "#/definitions/Period"
+                },
+                "value": {
+                    "description": "Total available tender lot budget",
+                    "$ref": "#/definitions/Value"
+                },
+                "auctionUrl": {
+                    "type": "string",
+                    "description": "A web address for view auction"
+                },
+                "date": {
+                    "type": "string",
+                    "description": "Date of posting lot"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "Unique id of the lot"
+                },
+                "guarantee": {
+                    "description": "Bid guarantee",
+                    "$ref": "#/definitions/Guarantee"
+                }
+            }
+        }
+    }
+]

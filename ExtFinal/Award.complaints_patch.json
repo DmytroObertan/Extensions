@@ -1,0 +1,13 @@
+[
+    {
+        "path": "/definitions/Award/properties/complaints", 
+        "value": {
+            "items": {
+                "$ref": "#/definitions/Complaint"
+            }, 
+            "type": "array", 
+            "description": "List of complaints to the award"
+        }, 
+        "op": "add"
+    }
+]

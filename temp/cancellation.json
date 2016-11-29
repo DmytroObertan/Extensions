@@ -1,0 +1,62 @@
+[
+    {
+        "path": "/definitions/Cancellation", 
+        "required": [
+            "reason"
+        ], 
+        "value": {
+            "type": "object", 
+            "description": "Describes the reason of tender cancellation contains accompanying documents if any", 
+            "properties": {
+                "status": {
+                    "enum": [
+                        "pending", 
+                        "active"
+                    ], 
+                    "type": "string", 
+                    "description": "Current status of the cancellation"
+                }, 
+                "relatedLot": {
+                    "type": "string", 
+                    "description": "An identifier of the related lot"
+                }, 
+                "documents": {
+                    "items": {
+                        "$ref": "#/definitions/Document"
+                    }, 
+                    "type": "array", 
+                    "description": "Documents accompanying the Cancellation: Protocol of Tender Committee with decision to cancel the Tender"
+                }, 
+                "reason": {
+                    "type": "string", 
+                    "description": "The reason for tender cancellation"
+                }, 
+                "reasonType": {
+                    "enum": [
+                        "cancelled", 
+                        "unsuccessful"
+                    ], 
+                    "type": "string", 
+                    "description": "Type of cancellation reason"
+                }, 
+                "date": {
+                    "type": "string", 
+                    "description": "The date of cancellation"
+                }, 
+                "cancellationOf": {
+                    "enum": [
+                        "tender", 
+                        "lot"
+                    ], 
+                    "type": "string", 
+                    "description": "What is cancelled. Possible values are tender or lot."
+                }, 
+                "id": {
+                    "type": "string", 
+                    "description": "Unique identifier of cancellation"
+                }
+            }
+        }, 
+        "op": "add"
+    }
+]

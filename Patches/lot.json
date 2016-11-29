@@ -1,62 +1,143 @@
 [
     {
-        "op": "add",
-        "path": "/definitions/Lot",
+        "path": "/definitions/Lot", 
         "required": [
-            "value",
+            "value", 
             "minimalStep"
-        ],
+        ], 
         "value": {
-            "type": "object",
-            "description": "Lot related to tender",
+            "type": "object", 
+            "description": "Lot related to tender", 
             "properties": {
                 "status": {
                     "enum": [
-                        "active",
-                        "unsuccessful",
-                        "complete",
+                        "active", 
+                        "unsuccessful", 
+                        "complete", 
                         "cancelled"
-                    ],
-                    "type": "string",
+                    ], 
+                    "type": "string", 
                     "description": "Status of the lot"
-                },
+                }, 
                 "description": {
-                    "type": "string",
+                    "type": "string", 
                     "description": "Detailed description of tender lot"
-                },
+                }, 
                 "title": {
-                    "type": "string",
+                    "type": "string", 
                     "description": "Title of lot"
                 },
-                "minimalStep": {
-                    "description": "The minimal step of auction.",
-                    "$ref": "#/definitions/Value"
-                },
-                "auctionPeriod": {
-                    "description": "Period when auction is conducted.",
-                    "$ref": "#/definitions/Period"
-                },
                 "value": {
-                    "description": "Total available tender lot budget",
+                    "description": "Total available tender lot budget", 
                     "$ref": "#/definitions/Value"
-                },
-                "auctionUrl": {
-                    "type": "string",
-                    "description": "A web address for view auction"
-                },
-                "date": {
-                    "type": "string",
-                    "description": "Date of posting lot"
                 },
                 "id": {
-                    "type": "string",
+                    "type": "string", 
                     "description": "Unique id of the lot"
-                },
-                "guarantee": {
-                    "description": "Bid guarantee",
-                    "$ref": "#/definitions/Guarantee"
                 }
             }
+        }, 
+        "op": "add"
+    }, 
+    {
+        "path": "/definitions/LotValue", 
+        "required": [
+            "value"
+        ], 
+        "value": {
+            "type": "object", 
+            "description": "Lot to which bid belongs to", 
+            "properties": {
+                "relatedLot": {
+                    "type": "string", 
+                    "description": "Id of related lot"
+                },
+                "value": {
+                    "description": "Value of the lot", 
+                    "$ref": "#/definitions/Value"
+                }, 
+                "subcontractingDetails": {
+                    "type": "string", 
+                    "description": "While submitting bid proposal, participant can fill in the text field of any length about subcontractor."
+                }
+            }
+        }, 
+        "op": "add"
+    },
+    {
+        "path": "/definitions/Tender/properties/lots", 
+        "value": {
+            "items": {
+                "$ref": "#/definitions/Lot"
+            }, 
+            "type": "array", 
+            "description": "All lots of the tender"
+        }, 
+        "op": "add"
+    }, 
+    {
+        "path": "/definitions/Bid/properties/lotValues", 
+        "value": {
+            "uniqueItems": true, 
+            "items": {
+                "$ref": "#/definitions/LotValue"
+            }, 
+            "type": "array", 
+            "description": "Lot values related to bid. This field is added if there are lots in tender."
+        }, 
+        "op": "add"
+    },
+    {
+        "path": "/definitions/Item/properties/relatedLot", 
+        "value": {
+            "type": "string", 
+            "description": "An identifier of the related lot. This field is added if there are lots in tender."
+        }, 
+        "op": "add"
+    },
+    {
+        "op": "add",
+        "path": "/definitions/Award/properties/lotID",
+        "value": {
+            "description": "An identifier of the related lot.",
+            "type": "string"
         }
+    },
+    {
+        "op": "add",
+        "path": "/definitions/Document/properties/documentOf/enum/1",
+        "value": "lot"
+    },
+    {
+        "op": "add",
+        "path": "/definitions/Feature/properties/enum/1",
+        "value": "lot"
+    },
+    {
+        "op": "add",
+        "path": "/definitions/Cancellation/properties/relatedLot",
+        "value": {
+            "description": "An identifier of the related lot",
+            "type": "string"
+        }
+    },
+    {
+        "op": "add",
+        "path": "/definitions/Cancellation/properties/cancellationOf/enum/1",
+        "value": "lot"
+    },
+    {
+        "op": "add",
+        "path": "/definitions/Complaint/properties/relatedLot",
+        "value": {
+            "description": "An identifier of the related lot",
+            "type": "string"
+        }
+    },
+    {
+        "op": "add",
+        "path": "/definitions/Question/properties/questionOf/enum/1",
+        "value": "lot"
     }
+
 ]

@@ -1,0 +1,10 @@
+[
+    {
+        "path": "/definitions/Item/unit", 
+        "value": {
+            "description": "Description of the unit which the good comes in e.g. hours, kilograms. Made up of a unit name, and the value of a single unit.", 
+            "$ref": "#/definitions/Unit"
+        }, 
+        "op": "add"
+    }
+]

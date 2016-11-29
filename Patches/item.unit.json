@@ -1,0 +1,17 @@
+[
+    {
+        "path": "/definitions/Item/properties/unit/properties/code", 
+        "value": {
+            "type": "string", 
+            "description": "UN/CEFACT Recommendation 20 unit code."
+        }, 
+        "op": "add"
+    }, 
+    {
+        "path": "/definitions/Item/properties/unit/required", 
+        "value": [
+            "code"
+        ], 
+        "op": "add"
+    }
+]

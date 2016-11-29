@@ -162,21 +162,21 @@
             "type": "object", 
             "description": "Questions related to tender", 
             "properties": {
-                "answer": {
+                "date": {
                     "type": "string", 
-                    "description": "Answer for the question asked"
+                    "description": "Date of posting"
                 }, 
                 "description": {
                     "type": "string", 
                     "description": "Description of the question"
                 }, 
+                "author": {
+                    "description": "Who is asking the question", 
+                    "$ref": "#/definitions/Organization"
+                }, 
                 "title": {
                     "type": "string", 
                     "description": "Title of question"
-                }, 
-                "author": {
-                    "description": "Who is asking the question", 
-                    "$ref": "#/definitions/properties/Organization"
                 }, 
                 "relatedItem": {
                     "type": "string", 
@@ -186,9 +186,9 @@
                     "type": "string", 
                     "description": "Date when answer has been provided"
                 }, 
-                "date": {
+                "answer": {
                     "type": "string", 
-                    "description": "Date of posting"
+                    "description": "Answer for the question asked"
                 }, 
                 "id": {
                     "type": "string", 
@@ -211,7 +211,7 @@
             "properties": {
                 "code": {
                     "type": "string", 
-                    "description": "Code of feature"
+                    "description": "Code of the feature, auto generated"
                 }, 
                 "description": {
                     "type": "string", 
@@ -219,33 +219,18 @@
                 }, 
                 "title": {
                     "type": "string", 
-                    "description": "Title of the feature"
+                    "description": "Feature title"
                 }, 
                 "enum": {
                     "items": {
-                        "description": {
-                            "type": "Description of the value", 
-                            "description": "Description of the value"
-                        }, 
-                        "value": {
-                            "type": "float", 
-                            "description": "Value of the feature"
-                        }, 
-                        "title": {
-                            "type": "string", 
-                            "description": "Title of the value"
-                        }
+                        "$ref": "#/definitions/Enum"
                     }, 
-                    "required": [
-                        "value", 
-                        "title"
-                    ], 
                     "type": "array", 
-                    "description": "List of values"
+                    "description": "A list of possible values: value, title, and description"
                 }, 
                 "relatedItem": {
                     "type": "string", 
-                    "description": "Id of related Item or Lot"
+                    "description": "An identifier of the related item or lot"
                 }, 
                 "featureOf": {
                     "enum": [
@@ -255,7 +240,7 @@
                         null
                     ], 
                     "type": "string", 
-                    "description": "Feature related to"
+                    "description": "What the feature is related to"
                 }
             }
         }, 
@@ -385,7 +370,7 @@
                         "lot"
                     ], 
                     "type": "string", 
-                    "description": "Entity to which document belongs."
+                    "description": "Entity to which the document belongs"
                 }, 
                 "datePublished": {
                     "type": [
@@ -415,7 +400,7 @@
                 }, 
                 "relatedItem": {
                     "type": "string", 
-                    "description": "Id of item document belongs to"
+                    "description": "Identifier of the item that the document belongs to"
                 }, 
                 "id": {
                     "type": [
@@ -444,7 +429,7 @@
                     "description": "Code of the feature"
                 }, 
                 "value": {
-                    "type": "string", 
+                    "type": "number", 
                     "description": "Value of the feature"
                 }
             }
@@ -453,78 +438,6 @@
             "type": "object", 
             "description": "Complaints to tender conditions and their resolutions", 
             "properties": {
-                "relatedLot": {
-                    "type": "string", 
-                    "description": "Id of related lot"
-                }, 
-                "tendererActionDate": {
-                    "type": "string", 
-                    "description": "Date of tenderer action"
-                }, 
-                "satisfied": {
-                    "type": "string", 
-                    "description": "Claim is satisfied?"
-                }, 
-                "tendererAction": {
-                    "type": "string", 
-                    "description": "Action of tenderer"
-                }, 
-                "dateSubmitted": {
-                    "type": "string", 
-                    "description": "Date when claim was submitted"
-                }, 
-                "id": {
-                    "type": "string", 
-                    "description": "Unique id of complaint"
-                }, 
-                "reviewPlace": {
-                    "type": "string", 
-                    "description": "Place of review"
-                }, 
-                "documents": {
-                    "uniqueItems": true, 
-                    "items": {
-                        "$ref": "#/definitions/Document"
-                    }, 
-                    "type": "array", 
-                    "description": "Documents related to complaint"
-                }, 
-                "title": {
-                    "type": "string", 
-                    "description": "Title of the complaint"
-                }, 
-                "decision": {
-                    "type": "string", 
-                    "description": "Reviewer decision"
-                }, 
-                "acceptance": {
-                    "type": "boolean", 
-                    "description": "Claim is accepted?"
-                }, 
-                "dateEscalated": {
-                    "type": "string", 
-                    "description": "Date of claim to complaint escalation"
-                }, 
-                "rejectReasonDescription": {
-                    "type": "string", 
-                    "description": "Description of reject reason"
-                }, 
-                "cancellationReason": {
-                    "type": "string", 
-                    "description": "Cancellation reason"
-                }, 
-                "dateAnswered": {
-                    "type": "string", 
-                    "description": "Date when Procuring entity answered the claim"
-                }, 
-                "type": {
-                    "enum": [
-                        "claim", 
-                        "complaint"
-                    ], 
-                    "type": "string", 
-                    "description": "Type of the complaint"
-                }, 
                 "status": {
                     "enum": [
                         "draft", 
@@ -535,10 +448,83 @@
                         "declined", 
                         "resolved", 
                         "cancelled", 
-                        "accepted"
+                        "accepted", 
+                        "stopped"
                     ], 
                     "type": "string", 
-                    "description": "Status of complaint"
+                    "description": "The current status of the complaint"
+                }, 
+                "tendererActionDate": {
+                    "type": "string", 
+                    "description": "The date of the tenderer action"
+                }, 
+                "satisfied": {
+                    "type": "boolean", 
+                    "description": "A Yes/No field to indicate whether the complaint was satisfied"
+                }, 
+                "tendererAction": {
+                    "type": "string", 
+                    "description": "Action of tenderer"
+                }, 
+                "dateSubmitted": {
+                    "type": "string", 
+                    "description": "The date when claim was submitted"
+                }, 
+                "id": {
+                    "type": "string", 
+                    "description": "Unique identifier of the complaint"
+                }, 
+                "reviewPlace": {
+                    "type": "string", 
+                    "description": "The place of reviewing the complaint"
+                }, 
+                "documents": {
+                    "uniqueItems": true, 
+                    "items": {
+                        "$ref": "#/definitions/Document"
+                    }, 
+                    "type": "array", 
+                    "description": "All documents and attachments related to the complaint"
+                }, 
+                "title": {
+                    "type": "string", 
+                    "description": "Title of the complaint"
+                }, 
+                "decision": {
+                    "type": "string", 
+                    "description": "Decision of a reviewer on the complaint."
+                }, 
+                "acceptance": {
+                    "type": "boolean", 
+                    "description": "A Yes/No field to indicate whether the complaint was accepted"
+                }, 
+                "dateEscalated": {
+                    "type": "string", 
+                    "description": "The date of claim to complaint escalation"
+                }, 
+                "rejectReasonDescription": {
+                    "type": "string", 
+                    "description": "Description of reject reason"
+                }, 
+                "cancellationReason": {
+                    "type": "string", 
+                    "description": "Reason for cancelling the complaint."
+                }, 
+                "dateAnswered": {
+                    "type": "string", 
+                    "description": "The date when Procuring entity answered the claim"
+                }, 
+                "type": {
+                    "enum": [
+                        "claim", 
+                        "complaint"
+                    ], 
+                    "type": "string", 
+                    "description": "Type of the complaint"
+                }, 
+                "relatedLot": {
+                    "type": "string", 
+                    "description": "An identifier of the related lot"
                 }, 
                 "description": {
                     "type": "string", 
@@ -546,15 +532,15 @@
                 }, 
                 "dateCancelled": {
                     "type": "string", 
-                    "description": "Date of cancelling"
+                    "description": "The date of cancelling the complaint."
                 }, 
                 "date": {
                     "type": "string", 
-                    "description": "Date of posting"
+                    "description": "Date of posting the complaint"
                 }, 
                 "dateDecision": {
                     "type": "string", 
-                    "description": "Date of complaint decision"
+                    "description": "The date when a decision on the complaint was made."
                 }, 
                 "author": {
                     "description": "Organization filing a complaint.", 
@@ -584,7 +570,7 @@
                 }, 
                 "reviewDate": {
                     "type": "string", 
-                    "description": "Date of review"
+                    "description": "The date of reviewing the complaint"
                 }
             }
         }, 
@@ -595,7 +581,12 @@
                 "status": {
                     "enum": [
                         "draft", 
-                        "active"
+                        "active", 
+                        "pending", 
+                        "invalid", 
+                        "invalid.pre-qualification", 
+                        "deleted", 
+                        "unsuccessful"
                     ], 
                     "type": "string", 
                     "description": "Status of bid"
@@ -616,9 +607,21 @@
                     "type": "array", 
                     "description": "Additional features of bid"
                 }, 
+                "eligibilityDocuments": {
+                    "uniqueItems": true, 
+                    "items": {
+                        "$ref": "#/definitions/Document"
+                    }, 
+                    "type": "array", 
+                    "description": "This envelope can contain eligibilityDocuments document type. It is revealed at pre-qualification."
+                }, 
                 "selfEligible": {
                     "type": "boolean", 
                     "description": "Confirms compliance of eligibility criteria set by the customer in the tendering documents"
+                }, 
+                "id": {
+                    "type": "string", 
+                    "description": "Unique id of bid"
                 }, 
                 "value": {
                     "description": "Value of bid", 
@@ -632,10 +635,18 @@
                     "type": "boolean", 
                     "description": "Confirms the absence of grounds for refusal to participate in accordance with Article 17 of the Law of Ukraine \"On public procurement]\""
                 }, 
+                "financialDocuments": {
+                    "uniqueItems": true, 
+                    "items": {
+                        "$ref": "#/definitions/Document"
+                    }, 
+                    "type": "array", 
+                    "description": "This envelope can contain financial part of proposal (commercialProposal and billOfQuantity). It is revealed at post-qualification."
+                }, 
                 "lotValues": {
                     "uniqueItems": true, 
                     "items": {
-                        "$ref": "#/definitions/lotValues"
+                        "$ref": "#/definitions/LotValue"
                     }, 
                     "type": "array", 
                     "description": "lot values related to bid"
@@ -646,21 +657,43 @@
                         "$ref": "#/definitions/Organization"
                     }, 
                     "type": "array", 
-                    "description": "List of tenderers"
+                    "description": "List of Organization objects"
                 }, 
                 "date": {
                     "type": "string", 
                     "description": "Date when bid posted"
                 }, 
-                "id": {
-                    "type": "string", 
-                    "description": "Unique id of bid"
+                "qualificationDocuments": {
+                    "uniqueItems": true, 
+                    "items": {
+                        "$ref": "#/definitions/Document"
+                    }, 
+                    "type": "array", 
+                    "description": "This envelope is revealed at post-qualification."
                 }, 
                 "participationUrl": {
                     "type": "string", 
                     "description": "A web address for participation in auction"
                 }
             }
+        }, 
+        "Enum": {
+            "type": "object", 
+            "properties": {
+                "description": {
+                    "type": "string", 
+                    "description": "Description of the value"
+                }, 
+                "value": {
+                    "type": "number", 
+                    "description": "Value of the feature"
+                }, 
+                "title": {
+                    "type": "string", 
+                    "description": "Title of the value"
+                }
+            }, 
+            "description": "A list of possible values: value, title, and description"
         }, 
         "Award": {
             "description": "An award for the given procurement. There may be more than one award per contracting process e.g. because the contract is split amongst different providers, or because it is a standing offer.", 
@@ -754,17 +787,36 @@
                     "description": "The suppliers awarded this award. If different suppliers have been awarded different items of values, these should be split into separate award blocks.", 
                     "mergeStrategy": "ocdsVersion"
                 }, 
-                "eligible": {
-                    "type": "boolean", 
-                    "description": "Confirms compliance of eligibility criteria set by the procuring entity in the tendering documents."
+                "complaintPeriod": {
+                    "description": "The timeframe when complaints can be submitted", 
+                    "$ref": "#/definitions/Period"
                 }, 
                 "bid_id": {
                     "type": "string", 
-                    "description": "The id of bid that the award related to"
+                    "description": "An identifier of the bid that the award is related to"
                 }, 
                 "value": {
                     "description": "The total value of this award. In the case of a framework contract this may be the total estimated lifetime value, or maximum value, of the agreement. There may be more than one award per procurement.", 
                     "$ref": "#/definitions/Value"
+                }, 
+                "subcontractingDetails": {
+                    "type": "string", 
+                    "description": "The text field of any length that contains information about subcontractor"
+                }, 
+                "complaints": {
+                    "items": {
+                        "$ref": "#/definitions/Complaint"
+                    }, 
+                    "type": "array", 
+                    "description": "List of complaints to the award"
+                }, 
+                "qualified": {
+                    "type": "boolean", 
+                    "description": "Confirms the absence of grounds for refusal to participate in accordance with Article 17 of the Law of Ukraine \"On Public Procurement\"."
+                }, 
+                "lotID": {
+                    "type": "string", 
+                    "description": "Identifier of related lot"
                 }, 
                 "date": {
                     "format": "date-time", 
@@ -776,20 +828,9 @@
                     "mergeStrategy": "ocdsVersion", 
                     "title": "Award date"
                 }, 
-                "qualified": {
+                "eligible": {
                     "type": "boolean", 
-                    "description": "Confirms the absence of grounds for refusal to participate in accordance with Article 17 of the Law of Ukraine \"On Public Procurement\"."
-                }, 
-                "lotID": {
-                    "type": "string", 
-                    "description": "Id of related lot"
-                }, 
-                "complaints": {
-                    "items": {
-                        "$ref": "#/definitions/Complaint"
-                    }, 
-                    "type": "array", 
-                    "description": "The complaints to award"
+                    "description": "Confirms compliance of eligibility criteria set by the procuring entity in the tendering documents."
                 }, 
                 "id": {
                     "type": [
@@ -846,7 +887,7 @@
                         "$ref": "#/definitions/Identifier"
                     }, 
                     "type": "array", 
-                    "description": "List of additional indentifiers"
+                    "description": "A list of additional indentifiers"
                 }, 
                 "kind": {
                     "enum": [
@@ -868,7 +909,7 @@
                 }, 
                 "contactPoint": {
                     "description": "The information about contact person, department, or contact point, for communication relating to this procurement", 
-                    "$ref": "$/definitions/ContactPoint"
+                    "$ref": "#/definitions/ContactPoint"
                 }, 
                 "identifier": {
                     "description": "The primary identifier of the organization", 
@@ -1170,10 +1211,17 @@
         "Contract": {
             "contractNumber": {
                 "type": "string", 
-                "description": ""
+                "description": "Editable number of the contract "
             }, 
             "description": "Information regarding the signed contract between the buyer and supplier(s).", 
             "title": "Contract", 
+            "suppliers": {
+                "items": {
+                    "$ref": "#/definitions/Organization"
+                }, 
+                "type": "array", 
+                "description": "Description of the supplying organization, auto-generated"
+            }, 
             "required": [
                 "id", 
                 "awardID"
@@ -1302,18 +1350,10 @@
             }, 
             "contractID": {
                 "type": "string", 
-                "description": ""
+                "description": "Number of the contract, auto generated"
             }
         }, 
         "Item": {
-            "relatedLot": {
-                "type": "string", 
-                "description": "Id of related lot"
-            }, 
-            "description": "A good, service, or work to be contracted.", 
-            "required": [
-                "id"
-            ], 
             "patternProperties": {
                 "^(description_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$": {
                     "type": [
@@ -1322,41 +1362,16 @@
                     ]
                 }
             }, 
-            "deliveryLocation": {
-                "properties": {
-                    "latitude": {
-                        "type": [
-                            "number", 
-                            "string"
-                        ], 
-                        "description": "The latitude of a location."
-                    }, 
-                    "elevation": {
-                        "type": [
-                            "number", 
-                            "string", 
-                            "null"
-                        ], 
-                        "description": "The elevation of a location."
-                    }, 
-                    "longitude": {
-                        "type": [
-                            "number", 
-                            "string"
-                        ], 
-                        "description": "The longitude of a location."
-                    }
-                }, 
-                "required": [
-                    "latitude", 
-                    "longitude"
-                ], 
-                "type": "object", 
-                "description": "Describes where an item will be delivered to as a geo co-ordinate. The longitude and latitude MUST be expressed in decimal degrees in the WGS84 (EPSG:4326) projection", 
-                "title": "Delivery Location"
-            }, 
+            "required": [
+                "id"
+            ], 
             "type": "object", 
+            "description": "A good, service, or work to be contracted.", 
             "properties": {
+                "relatedLot": {
+                    "type": "string", 
+                    "description": "An identifier of the related lot"
+                }, 
                 "description": {
                     "type": [
                         "string", 
@@ -1377,6 +1392,39 @@
                     "type": "array", 
                     "description": "An array of additional classifications for the item. See the [itemClassificationScheme](http://standard.open-contracting.org/latest/en/schema/codelists/#item-classification-scheme) codelist for common options to use in OCDS. This may also be used to present codes from an internal classification scheme.", 
                     "mergeStrategy": "ocdsVersion"
+                }, 
+                "deliveryLocation": {
+                    "title": "Delivery Location", 
+                    "required": [
+                        "latitude", 
+                        "longitude"
+                    ], 
+                    "type": "object", 
+                    "description": "Describes where an item will be delivered to as a geo co-ordinate. The longitude and latitude MUST be expressed in decimal degrees in the WGS84 (EPSG:4326) projection", 
+                    "properties": {
+                        "latitude": {
+                            "type": [
+                                "number", 
+                                "string"
+                            ], 
+                            "description": "The latitude of a location."
+                        }, 
+                        "elevation": {
+                            "type": [
+                                "number", 
+                                "string", 
+                                "null"
+                            ], 
+                            "description": "The elevation of a location."
+                        }, 
+                        "longitude": {
+                            "type": [
+                                "number", 
+                                "string"
+                            ], 
+                            "description": "The longitude of a location."
+                        }
+                    }
                 }, 
                 "deliveryAddress": {
                     "description": "Address, where the item should be delivered", 
@@ -1428,6 +1476,10 @@
                 "participationUrl": {
                     "type": "string", 
                     "description": "A web address for participation in auction"
+                }, 
+                "subcontractingDetails": {
+                    "type": "string", 
+                    "description": "While submitting bid proposal, participant can fill in the text field of any length about subcontractor."
                 }
             }
         }, 
@@ -1450,6 +1502,10 @@
                     ], 
                     "description": "Amount as a number.", 
                     "mergeStrategy": "ocdsVersion"
+                }, 
+                "valueAddedTaxIncluded": {
+                    "type": "boolean", 
+                    "description": ""
                 }
             }
         }, 
@@ -1475,21 +1531,17 @@
                     "type": "string", 
                     "description": "Description of the qualification"
                 }, 
-                "title": {
-                    "type": "string", 
-                    "description": "Qualification title"
-                }, 
                 "eligible": {
                     "type": "boolean", 
                     "description": "Confirms compliance of eligibility criteria set by the procuring entity in the tendering documents"
                 }, 
-                "id": {
+                "title": {
                     "type": "string", 
-                    "description": "Unique id of the qualification"
+                    "description": "Qualification title"
                 }, 
                 "qualified": {
                     "definitions": "Confirms the absence of grounds for refusal to participate in accordance with Article 17 of the Law of Ukraine \"On Public Procurement\"", 
-                    "type": "string"
+                    "type": "boolean"
                 }, 
                 "bidID": {
                     "type": "string", 
@@ -1505,6 +1557,10 @@
                     }, 
                     "type": "array", 
                     "description": "Container for Qualification documentation, protocols, reasons for qualification or disqualification. Uploaded by tender committee"
+                }, 
+                "id": {
+                    "type": "string", 
+                    "description": "Unique id of the qualification"
                 }
             }
         }, 
@@ -1898,16 +1954,13 @@
                     "description": "The period during which enquiries may be made and answered.", 
                     "$ref": "#/definitions/Period"
                 }, 
-                "minValue": {
-                    "description": "The minimum estimated value of the procurement.", 
-                    "$ref": "#/definitions/Value"
+                "submissionMethod": {
+                    "type": "string", 
+                    "description": "Specify the method by which bids must be submitted, in person, written, or electronic auction. Using the [submission method codelist](http://standard.open-contracting.org/latest/en/schema/codelists/#submission-method)"
                 }, 
-                "complaints": {
-                    "items": {
-                        "$ref": "#/definitions/Complaint"
-                    }, 
-                    "type": "array", 
-                    "description": "Complaints to tender conditions and their resolutions"
+                "date": {
+                    "type": "string", 
+                    "description": "Date of tender"
                 }, 
                 "numberOfTenderers": {
                     "definition": "The number of entities who submit a tender.", 
@@ -1916,6 +1969,10 @@
                         "null"
                     ], 
                     "mergeStrategy": "ocdsVersion"
+                }, 
+                "procurementMethodType": {
+                    "type": "string", 
+                    "description": "Procurement method types"
                 }, 
                 "awardCriteria": {
                     "type": [
@@ -1945,13 +2002,6 @@
                     "type": "string", 
                     "description": "Owner. Required for openprocurement.limited"
                 }, 
-                "qualifications": {
-                    "items": {
-                        "$ref": "#/definitions/Qualification"
-                    }, 
-                    "type": "array", 
-                    "description": "All qualifications of the tender"
-                }, 
                 "id": {
                     "type": [
                         "string", 
@@ -1961,9 +2011,9 @@
                     "mergeStrategy": "ocdsVersion", 
                     "title": "Tender ID"
                 }, 
-                "causeDescription": {
-                    "type": "string", 
-                    "description": "Reasoning behind usage of negotiations. Required for openprocurement.limited"
+                "guarantee": {
+                    "description": "Bid guarantee", 
+                    "$ref": "#/definitions/Guarantee"
                 }, 
                 "documents": {
                     "items": {
@@ -2019,27 +2069,13 @@
                     "description": "Rationale of procurement method, especially in the case of Limited tendering.", 
                     "mergeStrategy": "ocdsVersion"
                 }, 
-                "guarantee": {
-                    "description": "Bid guarantee", 
-                    "$ref": "#/definitions/Guatantee"
-                }, 
                 "cause": {
                     "type": "string", 
                     "description": "Cause of negotiations. See Article 35 of the Law of Ukraine \"On Public Procurement\". Required for openprocurement.limited"
                 }, 
-                "status": {
-                    "enum": [
-                        "active.equiries", 
-                        "active.tendering", 
-                        "active.auction", 
-                        "active.qualification", 
-                        "active.awarded", 
-                        "unsuccessful", 
-                        "complete", 
-                        "cancelled"
-                    ], 
+                "causeDescription": {
                     "type": "string", 
-                    "description": "Status of tender"
+                    "description": "Reasoning behind usage of negotiations. Required for openprocurement.limited"
                 }, 
                 "eligibilityCriteria": {
                     "type": [
@@ -2061,24 +2097,23 @@
                     "description": "Period when Auction is conducted", 
                     "$ref": "#/definitions/Period"
                 }, 
-                "procurementMethodType": {
-                    "type": "string", 
-                    "description": "Procurement method types"
-                }, 
-                "date": {
-                    "type": "string", 
-                    "description": "Date of tender"
-                }, 
-                "submissionMethod": {
+                "qualifications": {
                     "items": {
-                        "type": "string"
+                        "$ref": "#/definitions/Qualification"
                     }, 
-                    "type": [
-                        "array", 
-                        "null"
-                    ], 
-                    "description": "Specify the method by which bids must be submitted, in person, written, or electronic auction. Using the [submission method codelist](http://standard.open-contracting.org/latest/en/schema/codelists/#submission-method)", 
-                    "mergeStrategy": "ocdsVersion"
+                    "type": "array", 
+                    "description": "All qualifications of the tender"
+                }, 
+                "complaints": {
+                    "items": {
+                        "$ref": "#/definitions/Complaint"
+                    }, 
+                    "type": "array", 
+                    "description": "Complaints to tender conditions and their resolutions"
+                }, 
+                "minValue": {
+                    "description": "The minimum estimated value of the procurement.", 
+                    "$ref": "#/definitions/Value"
                 }, 
                 "milestones": {
                     "items": {
@@ -2130,9 +2165,30 @@
                     "description": "The total upper estimated value of the procurement.", 
                     "$ref": "#/definitions/Value"
                 }, 
+                "numberOfBids": {
+                    "type": "number", 
+                    "description": "The amount of bids in the tender"
+                }, 
                 "minimalStep": {
                     "description": "Minimal step of auction (reduction). The minimal step must be less then Tender.value.amount, the currency must be either absent or equal to Tender.value.currency, valueAddedTaxIncluded must be either absent or equal to Tender.value.valueAddedTaxIncluded.", 
                     "$ref": "#/definitions/Value"
+                }, 
+                "status": {
+                    "enum": [
+                        "active", 
+                        "active.enquiries", 
+                        "active.tendering", 
+                        "active.auction", 
+                        "active.qualification", 
+                        "active.awarded", 
+                        "active.pre-qualification", 
+                        "active.pre-qualification.stand-still", 
+                        "unsuccessful", 
+                        "complete", 
+                        "cancelled"
+                    ], 
+                    "type": "string", 
+                    "description": "Status of tender"
                 }, 
                 "awardCriteriaDetails": {
                     "type": [
@@ -2144,7 +2200,7 @@
                 }, 
                 "procuringEntity": {
                     "description": "The entity managing the procurement, which may be different from the buyer who is paying / using the items being procured.", 
-                    "$ref": "#/definitions/Organization"
+                    "$ref": "#/definitions/ProcuringEntity"
                 }, 
                 "hasEnquiries": {
                     "type": [
@@ -2227,7 +2283,7 @@
         }, 
         "Guarantee": {
             "description": "BidGuarantee", 
-            "$ref": "#/definitions/value"
+            "$ref": "#/definitions/Value"
         }
     }, 
     "$schema": "http://json-schema.org/draft-04/schema#", 

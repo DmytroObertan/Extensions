@@ -1,0 +1,10 @@
+[
+    {
+        "path": "/definitions/Document/properties/relatedItem", 
+        "value": {
+            "type": "string", 
+            "description": "Identifier of the item that the document belongs to"
+        }, 
+        "op": "add"
+    }
+]

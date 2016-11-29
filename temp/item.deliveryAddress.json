@@ -1,0 +1,10 @@
+[
+    {
+        "op": "add",
+        "path": "/definitions/Item/properties/deliveryAddress",
+        "value": {
+            "description": "Address, where the item should be delivered",
+            "$ref": "#/definitions/Address"
+        }
+    }
+]

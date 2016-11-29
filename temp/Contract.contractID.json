@@ -1,0 +1,10 @@
+[
+    {
+        "path": "/definitions/Contract/contractID", 
+        "value": {
+            "type": "string", 
+            "description": "Number of the contract, auto generated"
+        }, 
+        "op": "add"
+    }
+]

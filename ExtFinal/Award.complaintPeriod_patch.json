@@ -1,0 +1,10 @@
+[
+    {
+        "path": "/definitions/Award/properties/complaintPeriod", 
+        "value": {
+            "description": "The timeframe when complaints can be submitted", 
+            "$ref": "#/definitions/Period"
+        }, 
+        "op": "add"
+    }
+]

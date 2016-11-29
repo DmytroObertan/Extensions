@@ -1,10 +1,25 @@
 [
     {
-        "op": "add",
         "path": "/definitions/Guarantee",
         "value": {
             "description": "BidGuarantee",
-            "$ref": "#/definitions/value"
-        }
+            "$ref": "#/definitions/Value"
+        },
+        "op": "add"
+    },
+    {
+        "path": "/definitions/Tender/properties/guarantee", 
+        "value": {
+            "description": "Bid guarantee", 
+            "$ref": "#/definitions/Guarantee"
+        }, 
+        "op": "add"
+    },
+    {
+    	"path": "/definitions/Lot/properties/guarantee",
+    	"value": {
+    		"description": "Bid guarantee",
+    		"$ref": "#/definitions/Guarantee"
+    	}
     }
 ]

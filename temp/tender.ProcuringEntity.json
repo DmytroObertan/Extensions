@@ -1,0 +1,10 @@
+[
+    {
+        "path": "/definitions/Tender/properties/procuringEntity", 
+        "value": {
+            "description": "The entity managing the procurement, which may be different from the buyer who is paying / using the items being procured.", 
+            "$ref": "#/definitions/ProcuringEntity"
+        }, 
+        "op": "add"
+    }
+]

@@ -1,0 +1,10 @@
+[
+    {
+        "path": "/definitions/Value/properties/valueAddedTaxIncluded", 
+        "value": {
+            "type": "boolean", 
+            "description": "A Yes/No field to indicate whether the value tax was included"
+        }, 
+        "op": "add"
+    }
+]

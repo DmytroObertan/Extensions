@@ -1,0 +1,49 @@
+[
+    {
+        "path": "/definitions/ProcuringEntity", 
+        "required": [
+            "address", 
+            "required"
+        ], 
+        "value": {
+            "type": "object", 
+            "description": "The entity managing the procurement, which may be different from the buyer who is paying / using the items being procured", 
+            "properties": {
+                "additionalIdentifiers": {
+                    "items": {
+                        "$ref": "#/definitions/Identifier"
+                    }, 
+                    "type": "array", 
+                    "description": "A list of additional indentifiers"
+                }, 
+                "kind": {
+                    "enum": [
+                        "general", 
+                        "special", 
+                        "defense", 
+                        "other"
+                    ], 
+                    "type": "string", 
+                    "description": "Type of procuring entity"
+                }, 
+                "name": {
+                    "type": "string", 
+                    "description": "The common name of the organization"
+                }, 
+                "address": {
+                    "description": "Address of the procuring entity", 
+                    "$ref": "#/definitions/Address"
+                }, 
+                "contactPoint": {
+                    "description": "The information about contact person, department, or contact point, for communication relating to this procurement", 
+                    "$ref": "#/definitions/ContactPoint"
+                }, 
+                "identifier": {
+                    "description": "The primary identifier of the organization", 
+                    "$ref": "#/definitions/Identifier"
+                }
+            }
+        }, 
+        "op": "add"
+    }
+]

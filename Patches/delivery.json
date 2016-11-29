@@ -1,0 +1,55 @@
+[
+    {
+        "path": "/definitions/Item/properties/deliveryAddress", 
+        "value": {
+            "description": "Address, where the item should be delivered", 
+            "$ref": "#/definitions/Address"
+        }, 
+        "op": "add"
+    }, 
+    {
+        "path": "/definitions/Item/properties/deliveryDate", 
+        "value": {
+            "description": "Period during which the item should be delivered", 
+            "$ref": "#/definitions/Period"
+        }, 
+        "op": "add"
+    }, 
+    {
+        "path": "/definitions/Item/properties/deliveryLocation", 
+        "value": {
+            "title": "Delivery Location", 
+            "required": [
+                "latitude", 
+                "longitude"
+            ], 
+            "type": "object", 
+            "description": "Describes where an item will be delivered to as a geo co-ordinate. The longitude and latitude MUST be expressed in decimal degrees in the WGS84 (EPSG:4326) projection", 
+            "properties": {
+                "latitude": {
+                    "type": [
+                        "number", 
+                        "string"
+                    ], 
+                    "description": "The latitude of a location."
+                }, 
+                "elevation": {
+                    "type": [
+                        "number", 
+                        "string", 
+                        "null"
+                    ], 
+                    "description": "The elevation of a location."
+                }, 
+                "longitude": {
+                    "type": [
+                        "number", 
+                        "string"
+                    ], 
+                    "description": "The longitude of a location."
+                }
+            }
+        }, 
+        "op": "add"
+    }
+]

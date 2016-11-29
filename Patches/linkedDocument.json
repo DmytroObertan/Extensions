@@ -1,0 +1,22 @@
+[
+    {
+        "path": "/definitions/Document/properties/relatedItem", 
+        "value": {
+            "type": "string", 
+            "description": "Identifier of the item that the document belongs to"
+        }, 
+        "op": "add"
+    },
+    {
+        "path": "/definitions/Document/properties/documentOf", 
+        "value": {
+            "enum": [
+                "tender", 
+                "item"
+            ], 
+            "type": "string", 
+            "description": "Entity to which the document belongs"
+        }, 
+        "op": "add"
+    }
+]
