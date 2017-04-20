@@ -1,7 +1,8 @@
 [
     {
-        "path": "/definitions/Contract/suppliers", 
+        "path": "/definitions/Contract/properties/suppliers", 
         "value": {
+            "title": "Suppliers",
             "items": {
                 "$ref": "#/definitions/Organization"
             }, 

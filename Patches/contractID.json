@@ -1,7 +1,8 @@
 [
     {
-        "path": "/definitions/Contract/contractID", 
+        "path": "/definitions/Contract/properties/contractID", 
         "value": {
+        	"title": "Contract ID",
             "type": "string", 
             "description": "Number of the contract, auto generated"
         }, 

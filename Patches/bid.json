@@ -1,74 +1,94 @@
 [
     {
-        "path": "/definitions/Bid", 
-        "required": [
-            "value"
-        ], 
+        "op": "add",
+        "path": "/definitions/Bid",
         "value": {
-            "type": "object", 
-            "description": "Bids in tender", 
+            "title": "Bid",
+            "description": "For representing a bid in response to the tender or qualification stage in this contracting process.",
+            "type": "object",
+            "required": [
+                "id"
+            ],
             "properties": {
+                "id": {
+                    "title": "ID",
+                    "description": "A local identifier for this bid",
+                    "type": [
+                        "string"
+                    ]
+                },
+                "date": {
+                    "title": "Date",
+                    "description": "The date when this bid was received.",
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "format": "date-time"
+                },
                 "status": {
-                    "enum": [
-                        "draft", 
-                        "active"
-                    ], 
-                    "type": "string", 
-                    "description": "Status of bid"
-                }, 
-                "documents": {
-                    "uniqueItems": true, 
-                    "items": {
-                        "$ref": "#/definitions/Document"
-                    }, 
-                    "type": "array", 
-                    "description": "Documents related to bid"
-                }, 
-                "value": {
-                    "description": "Value of bid", 
-                    "$ref": "#/definitions/Value"
-                }, 
+                    "title": "Status",
+                    "description": "The status of the bid, drawn from the bidStatus codelist",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
                 "tenderers": {
-                    "uniqueItems": true, 
+                    "title": "Tenderer",
+                    "description": "The party, or parties, responsible for this bid. This should provide a name and identifier, cross-referenced to an entry in the parties array at the top level of the release.",
+                    "type": [
+                        "array",
+                        "null"
+                    ],
                     "items": {
                         "$ref": "#/definitions/Organization"
-                    }, 
-                    "type": "array", 
-                    "description": "List of Organization objects"
-                }, 
-                "date": {
-                    "type": "string", 
-                    "description": "Date when bid posted"
-                }, 
-                "id": {
-                    "type": "string", 
-                    "description": "Unique id of bid"
+                    }
                 },
-                "numberOfTenderers": {
-                    "type": "number",
-                    "description": "Total amount of tenderers"
+                "value": {
+                    "title": "Value",
+                    "description": "The total value of the bid.",
+                    "$ref": "#/definitions/Value"
+                },
+                "documents": {
+                    "title": "Documents",
+                    "description": "All documents and attachments related to the bid and its evaluation.",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Document"
+                    },
+                    "uniqueItems": true
+                },
+                "relatedLot": {
+                    "title": "Related Lot",
+                    "description": "Id of related lot",
+                    "type": "string"
                 }
             }
-        }, 
-        "op": "add"
+        }
     },
     {
-        "path": "/definitions/Tender/properties/bids", 
-        "value": {
-            "items": {
-                "$ref": "#/definitions/Bid"
-            }, 
-            "type": "array", 
-            "description": "A list of all bids placed in the tender with information about tenderers, their proposal and other qualification documentation."
-        }, 
-        "op": "add"
-    }, 
+    	"op": "add",
+    	"path": "/properties/bids",
+    	"value": {
+    		"title": "Bids",
+    		"type": "object",
+    		"description": "A list of all bids placed in the tender with information about tenderers, their proposal and other qualification documentation.",
+    		"properties": {
+    			"details": {
+                    "title": "Bid details",
+                    "description": "An array of bids, providing information on the bidders, and where applicable, bid status, bid values and related documents. The extent to which this information can be disclosed varies from jurisdiction to jurisdiction.",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Bid"
+                    }
+                }
+    		}
+    	}
+    },
     {
-        "path": "/definitions/Award/properties/bid_id", 
-        "value": {
-            "type": "string", 
-            "description": "An identifier of the bid that the award is related to"
-        }, 
-        "op": "add"
+        "op": "add",
+        "path": "/properties/tag/items/enum/0",
+        "value": "bid"
     }
 ]

@@ -26,5 +26,13 @@
             }
         }, 
         "op": "add"
+    },
+    {
+        "path": "/definitions/Tender/properties/shortlistedFirms", 
+        "value": {
+            "type": "string", 
+            "description": "A list of firms which can register bids on the second stage of the competitive dialogue procedure"
+        }, 
+        "op": "add"
     }
 ]

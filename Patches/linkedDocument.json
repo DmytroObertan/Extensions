@@ -2,14 +2,16 @@
     {
         "path": "/definitions/Document/properties/relatedItem", 
         "value": {
+            "title": "Related Item",
             "type": "string", 
             "description": "Identifier of the item that the document belongs to"
         }, 
         "op": "add"
-    },
+    }, 
     {
-        "path": "/definitions/Document/properties/documentOf", 
+        "path": "/definitions/Document/properties/documentScope", 
         "value": {
+            "title": "Document scope",
             "enum": [
                 "tender", 
                 "item"

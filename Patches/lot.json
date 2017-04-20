@@ -1,15 +1,17 @@
+
 [
     {
         "path": "/definitions/Lot", 
         "required": [
-            "value", 
-            "minimalStep"
+            "value"
         ], 
         "value": {
+            "title": "Lot",
             "type": "object", 
             "description": "Lot related to tender", 
             "properties": {
                 "status": {
+                    "title": "Status",
                     "enum": [
                         "active", 
                         "unsuccessful", 
@@ -20,45 +22,24 @@
                     "description": "Status of the lot"
                 }, 
                 "description": {
+                    "title": "Description",
                     "type": "string", 
                     "description": "Detailed description of tender lot"
                 }, 
                 "title": {
+                    "title": "Title",
                     "type": "string", 
                     "description": "Title of lot"
                 },
                 "value": {
+                    "title": "Value",
                     "description": "Total available tender lot budget", 
                     "$ref": "#/definitions/Value"
                 },
                 "id": {
+                    "title": "ID",
                     "type": "string", 
                     "description": "Unique id of the lot"
-                }
-            }
-        }, 
-        "op": "add"
-    }, 
-    {
-        "path": "/definitions/LotValue", 
-        "required": [
-            "value"
-        ], 
-        "value": {
-            "type": "object", 
-            "description": "Lot to which bid belongs to", 
-            "properties": {
-                "relatedLot": {
-                    "type": "string", 
-                    "description": "Id of related lot"
-                },
-                "value": {
-                    "description": "Value of the lot", 
-                    "$ref": "#/definitions/Value"
-                }, 
-                "subcontractingDetails": {
-                    "type": "string", 
-                    "description": "While submitting bid proposal, participant can fill in the text field of any length about subcontractor."
                 }
             }
         }, 
@@ -67,6 +48,7 @@
     {
         "path": "/definitions/Tender/properties/lots", 
         "value": {
+            "title": "Lots",
             "items": {
                 "$ref": "#/definitions/Lot"
             }, 
@@ -74,22 +56,11 @@
             "description": "All lots of the tender"
         }, 
         "op": "add"
-    }, 
-    {
-        "path": "/definitions/Bid/properties/lotValues", 
-        "value": {
-            "uniqueItems": true, 
-            "items": {
-                "$ref": "#/definitions/LotValue"
-            }, 
-            "type": "array", 
-            "description": "Lot values related to bid. This field is added if there are lots in tender."
-        }, 
-        "op": "add"
     },
     {
         "path": "/definitions/Item/properties/relatedLot", 
         "value": {
+            "title": "Related Lot",
             "type": "string", 
             "description": "An identifier of the related lot. This field is added if there are lots in tender."
         }, 
@@ -99,45 +70,41 @@
         "op": "add",
         "path": "/definitions/Award/properties/lotID",
         "value": {
+            "title": "Lot ID",
             "description": "An identifier of the related lot.",
             "type": "string"
         }
     },
     {
         "op": "add",
-        "path": "/definitions/Document/properties/documentOf/enum/1",
+        "path": "/definitions/Document/properties/documentScope/enum/1",
         "value": "lot"
     },
     {
         "op": "add",
-        "path": "/definitions/Feature/properties/enum/1",
-        "value": "lot"
-    },
-    {
-        "op": "add",
-        "path": "/definitions/Cancellation/properties/relatedLot",
+        "path": "/definitions/Auction/properties/relatedLot",
         "value": {
-            "description": "An identifier of the related lot",
+            "title": "Related lot",
+            "description": "Id of the related lot",
             "type": "string"
         }
     },
     {
         "op": "add",
-        "path": "/definitions/Cancellation/properties/cancellationOf/enum/1",
-        "value": "lot"
-    },
-    {
-        "op": "add",
-        "path": "/definitions/Complaint/properties/relatedLot",
+        "path": "/definitions/Enquiry/properties/relatedLot",
         "value": {
-            "description": "An identifier of the related lot",
+            "title": "Related lot",
+            "description": "Id of the related lot",
             "type": "string"
         }
     },
     {
         "op": "add",
-        "path": "/definitions/Question/properties/questionOf/enum/1",
-        "value": "lot"
+        "path": "/definitions/Bid/properties/participationUrl",
+        "value": {
+            "title": "Participation url",
+            "description": "A link for participation in auction",
+            "type": "string"
+        }
     }
-
 ]
